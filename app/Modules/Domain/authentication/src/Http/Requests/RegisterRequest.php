@@ -2,7 +2,8 @@
 
 namespace Bicycle\Modules\Domain\Authentication\Http\Requests;
 
-use Selfofficename\Modules\Domain\Authentication\Rules\EmailValidation;
+use Bicycle\Modules\Domain\Authentication\Rules\EmailValidation;
+use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
@@ -19,7 +20,7 @@ class RegisterRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
+     * @return array<string, ValidationRule|array|string>
      */
     public function rules(): array
     {
@@ -31,12 +32,6 @@ class RegisterRequest extends FormRequest
                 "max:64",
                 Rule::unique('users', 'email'),
                 new EmailValidation()
-            ],
-            "mobile"       => [
-                "required",
-                "min:11",
-                "max:11",
-                Rule::unique('users', 'mobile'),
             ],
             "password"    => "required|min:6|max:16"
         ];

@@ -32,5 +32,4 @@ class AuthenticationServiceProvider extends ServiceProvider
             ->namespace(AuthConstants::CONTROLLER_ROUTE)
             ->group(__DIR__.AuthConstants::API_ROUTE);
     }
-
 }

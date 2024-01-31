@@ -1,9 +1,9 @@
 <?php
 
-namespace Selfofficename\Modules\Domain\Authentication\Services;
+namespace Bicycle\Modules\Domain\Authentication\Services;
 
-use Selfofficename\Modules\Domain\Authentication\Contracts\RegisterInterface;
-use Selfofficename\Modules\Domain\Authentication\Contracts\RegisterRepository;
+use Bicycle\Modules\Domain\Authentication\Contracts\RegisterInterface;
+use Bicycle\Modules\Domain\Authentication\Contracts\RegisterRepository;
 
 class RegisterService implements RegisterInterface
 

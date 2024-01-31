@@ -19,7 +19,7 @@ class RegisterRepository extends BaseRepository
     }
 
     /**
-     * @param int $passportId
+     * @param $data
      * @return JsonResponse
      */
     public function register($data): JsonResponse
@@ -27,7 +27,6 @@ class RegisterRepository extends BaseRepository
         $user = User::query()->create([
             'name'     => $data['name'],
             'email'     => $data['email'],
-            'mobile'     => $data['mobile'],
             'password' => bcrypt($data['password'])
         ]);
 

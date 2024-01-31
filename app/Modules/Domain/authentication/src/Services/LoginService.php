@@ -2,14 +2,13 @@
 
 namespace Bicycle\Modules\Domain\Authentication\Services;
 
-
 use Bicycle\Modules\Domain\Authentication\Contracts\LoginInterface;
 use Bicycle\Modules\Domain\Authentication\Contracts\LoginRepository;
 
 class LoginService implements LoginInterface
 
 {
-    public function __construct(LoginRepository $loginRepository)
+    public function __construct(public LoginRepository $loginRepository)
     {
         $this->loginRepository = $loginRepository;
     }

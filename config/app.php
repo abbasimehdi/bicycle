@@ -173,7 +173,8 @@ return [
          * Bind Modules
          */
         \Bicycle\Modules\Domain\Core\CoreServiceProvider::class,
-        \Bicycle\Modules\Domain\Authentication\AuthenticationServiceProvider::class
+        \Bicycle\Modules\Domain\Authentication\AuthenticationServiceProvider::class,
+        \Bicycle\Modules\Domain\Profile\ProfileServiceProvider::class,
     ])->toArray(),
 
     /*

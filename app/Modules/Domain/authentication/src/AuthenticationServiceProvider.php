@@ -6,9 +6,9 @@ use Bicycle\Modules\Domain\Authentication\Contracts\LoginInterface;
 use Bicycle\Modules\Domain\Authentication\Contracts\RegisterInterface;
 use Bicycle\Modules\Domain\Authentication\Models\Schemas\Constants\AuthConstants;
 use Bicycle\Modules\Domain\Authentication\Services\LoginService;
-use Bicycle\Modules\Domain\Authentication\Services\RegisterService;
 use Carbon\Laravel\ServiceProvider;
 use Illuminate\Support\Facades\Route;
+use Bicycle\Modules\Domain\Authentication\Services\RegisterService;
 
 class AuthenticationServiceProvider extends ServiceProvider
 {
@@ -32,5 +32,4 @@ class AuthenticationServiceProvider extends ServiceProvider
             ->namespace(AuthConstants::CONTROLLER_ROUTE)
             ->group(__DIR__.AuthConstants::API_ROUTE);
     }
-
 }

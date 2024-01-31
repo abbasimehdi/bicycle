@@ -14,9 +14,9 @@ use Symfony\Component\HttpFoundation\Response as ResponseAlias;
 class LoginRepository extends BaseRepository
 {
     /**
-     * @return mixed
+     * @return string
      */
-    public function model(): mixed
+    public function model(): string
     {
         return User::class;
     }

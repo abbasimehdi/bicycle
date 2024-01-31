@@ -5,10 +5,10 @@ namespace Bicycle\Modules\Domain\Authentication;
 use Bicycle\Modules\Domain\Authentication\Contracts\LoginInterface;
 use Bicycle\Modules\Domain\Authentication\Contracts\RegisterInterface;
 use Bicycle\Modules\Domain\Authentication\Models\Schemas\Constants\AuthConstants;
+use Bicycle\Modules\Domain\Authentication\Services\LoginService;
+use Bicycle\Modules\Domain\Authentication\Services\RegisterService;
 use Carbon\Laravel\ServiceProvider;
 use Illuminate\Support\Facades\Route;
-use Selfofficename\Modules\Domain\Authentication\Services\LoginService;
-use Selfofficename\Modules\Domain\Authentication\Services\RegisterService;
 
 class AuthenticationServiceProvider extends ServiceProvider
 {

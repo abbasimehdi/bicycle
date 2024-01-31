@@ -175,6 +175,7 @@ return [
         \Bicycle\Modules\Domain\Core\CoreServiceProvider::class,
         \Bicycle\Modules\Domain\Authentication\AuthenticationServiceProvider::class,
         \Bicycle\Modules\Domain\Profile\ProfileServiceProvider::class,
+        \Bicycle\Modules\Domain\Bicycle\BicycleServiceProvider::class,
     ])->toArray(),
 
     /*

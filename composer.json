@@ -28,7 +28,8 @@
             "Database\\Seeders\\": "database/seeders/",
             "Bicycle\\Modules\\Domain\\Core\\": "app/Modules/Domain/Core/src",
             "Bicycle\\Modules\\Domain\\Authentication\\": "app/Modules/Domain/authentication/src",
-            "Bicycle\\Modules\\Domain\\Profile\\": "app/Modules/Domain/profile/src"
+            "Bicycle\\Modules\\Domain\\Profile\\": "app/Modules/Domain/profile/src",
+            "Bicycle\\Modules\\Domain\\Bicycle\\": "app/Modules/Domain/bicycle/src"
         }
     },
     "autoload-dev": {

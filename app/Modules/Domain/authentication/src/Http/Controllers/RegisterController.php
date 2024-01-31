@@ -2,10 +2,10 @@
 
 namespace Bicycle\Modules\Domain\Authentication\Http\Controllers;
 
+use App\Http\Controllers\Controller;
+use Bicycle\Modules\Domain\Authentication\Contracts\RegisterInterface;
+use Bicycle\Modules\Domain\Authentication\Http\Requests\RegisterRequest;
 use Illuminate\Http\JsonResponse;
-use Selfofficename\Modules\Domain\Authentication\Contracts\RegisterInterface;
-use Selfofficename\Modules\Domain\Authentication\Http\Requests\RegisterRequest;
-use Selfofficename\Modules\InfraStructure\Http\Controllers\Controller;
 
 class RegisterController extends Controller
 {
@@ -22,7 +22,7 @@ class RegisterController extends Controller
      * @param RegisterRequest $request
      * @return JsonResponse
      */
-    public function register(RegisterRequest $request)
+    public function register(RegisterRequest $request): JsonResponse
     {
         return $this->registerInterface->register(($request->all()));
     }

@@ -1,12 +1,11 @@
 <?php
 
-namespace Selfofficename\Modules\Domain\Authentication\Rules;
+namespace Bicycle\Modules\Domain\Authentication\Rules;
 
+use Bicycle\Modules\Domain\Authentication\Models\Schemas\Constants\AuthConstants;
 use Illuminate\Contracts\Translation\Translator;
 use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Foundation\Application;
-use Selfofficename\Modules\Core\Models\Schemas\Constants\BaseConstants;
-use Selfofficename\Modules\Domain\Authentication\Models\Schemas\Constants\AuthConstants;
 
 class EmailValidation implements Rule
 {

@@ -31,10 +31,10 @@ class ReservationRepository extends BaseRepository
      * @return JsonResponse
      * @throws \Exception
      */
-    public function reservation(array $data, $id): JsonResponse
+    public function reservation(array $data, $bicycle): JsonResponse
     {
         return (new ReservationResource(
-            (new ReservationBuilder($this->findBicycle($id), $data['count']))
+            (new ReservationBuilder($bicycle, $data['count']))
                 ->active()
                 ->hasInventoryInDate(
                     Carbon::createFromDate($data['startDate'])->startOfDay(),
@@ -50,11 +50,11 @@ class ReservationRepository extends BaseRepository
      * @param int $id
      * @return JsonResponse
      */
-    public function cancel(int $id): JsonResponse
+    public function cancel($reservation): JsonResponse
     {
         return (new ReservationResource(
             (new CancelReservationBuilder(
-                Reservation::query()->where('id', $id)->first()
+                $reservation
             ))->checkStatus()->cancel()
         ))
             ->response()

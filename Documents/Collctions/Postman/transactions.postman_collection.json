@@ -10,6 +10,51 @@
 			"name": "auth",
 			"item": [
 				{
+					"name": "profile",
+					"item": [
+						{
+							"name": "show",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Charset",
+										"value": "utf-8",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/{{prefix}}/{{version}}/profile",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"{{prefix}}",
+										"{{version}}",
+										"profile"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
 					"name": "register",
 					"request": {
 						"method": "POST",
@@ -40,15 +85,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8000/api/auth/register",
-							"protocol": "http",
+							"raw": "{{url}}/{{prefix}}/{{auth}}/register",
 							"host": [
-								"localhost"
+								"{{url}}"
 							],
-							"port": "8000",
 							"path": [
-								"api",
-								"auth",
+								"{{prefix}}",
+								"{{auth}}",
 								"register"
 							]
 						}
@@ -92,15 +135,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8000/api/auth/login",
-							"protocol": "http",
+							"raw": "{{url}}/{{prefix}}/{{auth}}/login",
 							"host": [
-								"localhost"
+								"{{url}}"
 							],
-							"port": "8000",
 							"path": [
-								"api",
-								"auth",
+								"{{prefix}}",
+								"{{auth}}",
 								"login"
 							]
 						}
@@ -175,53 +216,6 @@
 			]
 		},
 		{
-			"name": "profile",
-			"item": [
-				{
-					"name": "show",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							},
-							{
-								"key": "Accept-Charset",
-								"value": "utf-8",
-								"type": "text"
-							},
-							{
-								"key": "Authorization",
-								"value": "{{token}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "http://localhost:8000/api/v1/profile",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8000",
-							"path": [
-								"api",
-								"v1",
-								"profile"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
 			"name": "reservation",
 			"item": [
 				{
@@ -260,17 +254,15 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8000/api/v1/bicycles/6/reservation",
-							"protocol": "http",
+							"raw": "{{url}}/{{prefix}}/{{version}}/bicycles/446/reservation",
 							"host": [
-								"localhost"
+								"{{url}}"
 							],
-							"port": "8000",
 							"path": [
-								"api",
-								"v1",
+								"{{prefix}}",
+								"{{version}}",
 								"bicycles",
-								"6",
+								"446",
 								"reservation"
 							]
 						}
@@ -313,18 +305,16 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8000/api/v1/admin/reservations/6/cancel",
-							"protocol": "http",
+							"raw": "{{url}}/{{prefix}}/{{version}}/admin/reservations/68/cancel",
 							"host": [
-								"localhost"
+								"{{url}}"
 							],
-							"port": "8000",
 							"path": [
-								"api",
-								"v1",
+								"{{prefix}}",
+								"{{version}}",
 								"admin",
 								"reservations",
-								"6",
+								"68",
 								"cancel"
 							]
 						}

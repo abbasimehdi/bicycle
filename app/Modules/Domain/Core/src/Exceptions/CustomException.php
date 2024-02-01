@@ -13,10 +13,10 @@ class CustomException extends Exception
      * @param $exception
      * @return JsonResponse
      */
-    public function message($exception): JsonResponse
+    public function message(object $exception, int $statusCode): JsonResponse
     {
         return (new BaseListCollection(collect(['message' => $exception->getMessage()])))
             ->response()
-            ->setStatusCode(ResponseAlias::HTTP_INTERNAL_SERVER_ERROR);
+            ->setStatusCode($statusCode ?? ResponseAlias::HTTP_INTERNAL_SERVER_ERROR);
     }
 }

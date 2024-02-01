@@ -10,7 +10,8 @@
         "laravel/framework": "^10.10",
         "laravel/passport": "^11.10",
         "laravel/sanctum": "^3.3",
-        "laravel/tinker": "^2.8"
+        "laravel/tinker": "^2.8",
+        "spatie/laravel-permission": "^6.3"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
@@ -29,7 +30,8 @@
             "Bicycle\\Modules\\Domain\\Core\\": "app/Modules/Domain/Core/src",
             "Bicycle\\Modules\\Domain\\Authentication\\": "app/Modules/Domain/authentication/src",
             "Bicycle\\Modules\\Domain\\Profile\\": "app/Modules/Domain/profile/src",
-            "Bicycle\\Modules\\Domain\\Bicycle\\": "app/Modules/Domain/bicycle/src"
+            "Bicycle\\Modules\\Domain\\Bicycle\\": "app/Modules/Domain/bicycle/src",
+            "Bicycle\\Modules\\Domain\\Reservation\\": "app/Modules/Domain/reservation/src"
         }
     },
     "autoload-dev": {

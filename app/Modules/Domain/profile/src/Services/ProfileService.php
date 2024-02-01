@@ -2,7 +2,6 @@
 
 namespace Bicycle\Modules\Domain\Profile\Services;
 
-
 use App\Modules\Domain\profile\src\Contracts\ProfileRepository;
 use Bicycle\Modules\Domain\Profile\Contracts\ProfileInterface;
 use Illuminate\Http\JsonResponse;
@@ -10,8 +9,12 @@ use Illuminate\Http\JsonResponse;
 class ProfileService implements ProfileInterface
 
 {
-    public function __construct(public ProfileRepository $profileRepository)
-    {
+    /**
+     * @param ProfileRepository $profileRepository
+     */
+    public function __construct(
+        public ProfileRepository $profileRepository
+    ) {
         $this->profileRepository = $profileRepository;
     }
 

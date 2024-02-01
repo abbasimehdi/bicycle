@@ -168,6 +168,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        Spatie\Permission\PermissionServiceProvider::class,
 
         /*
          * Bind Modules
@@ -176,6 +177,7 @@ return [
         \Bicycle\Modules\Domain\Authentication\AuthenticationServiceProvider::class,
         \Bicycle\Modules\Domain\Profile\ProfileServiceProvider::class,
         \Bicycle\Modules\Domain\Bicycle\BicycleServiceProvider::class,
+        \Bicycle\Modules\Domain\Reservation\ReservationServiceProvider::class
     ])->toArray(),
 
     /*

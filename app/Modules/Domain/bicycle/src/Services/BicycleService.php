@@ -11,6 +11,9 @@ use Symfony\Component\HttpFoundation\Response as ResponseAlias;
 class BicycleService implements BicycleInterface
 
 {
+    /**
+     * @param BicycleRepository $bicycleRepository
+     */
     public function __construct(public BicycleRepository $bicycleRepository)
     {
         $this->bicycleRepository = $bicycleRepository;

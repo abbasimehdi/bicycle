@@ -29,5 +29,4 @@ class BicycleServiceProvider extends ServiceProvider
             ->namespace(BicycleConstants::CONTROLLER_ROUTE)
             ->group(__DIR__.BicycleConstants::API_ROUTE);
     }
-
 }

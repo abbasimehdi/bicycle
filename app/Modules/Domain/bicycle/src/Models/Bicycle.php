@@ -2,6 +2,7 @@
 
 namespace Bicycle\Modules\Domain\Bicycle\Models;
 
+use App\Modules\Domain\bicycle\src\Models\Schemas\Constants\BicycleConstants;
 use App\Modules\Domain\reservation\src\Patterns\Builder\Inventory;
 use Bicycle\Modules\Domain\Bicycle\database\factories\BicycleFactory;
 use Bicycle\Modules\Domain\Core\Scopes\ActiveScope;
@@ -16,11 +17,16 @@ class Bicycle extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'inventory', 'is_active'];
+    protected $fillable = [
+        BicycleConstants::TITLE,
+        BicycleConstants::INVENTORY,
+        BicycleConstants::IS_ACTIVE
+    ];
 
     protected $appends = ['active_inventory'];
 
     protected $primaryKey= "id";
+
     /**
      * @return void
      */
@@ -44,8 +50,9 @@ class Bicycle extends Model
      */
     public function getActiveInventoryAttribute(): mixed
     {
-        $date = \request()->query('date') ?? Carbon::now()->toDateString();
-        return (new Inventory($this))->Inventory($date);
+        return (new Inventory($this))->Inventory(
+            \request()->query('date') ?? Carbon::now()->toDateString()
+        );
     }
 
     /**

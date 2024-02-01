@@ -2,6 +2,7 @@
 
 namespace Bicycle\Modules\Domain\Reservation\Http\Requests;
 
+use Bicycle\Modules\Domain\Reservation\Models\Schemas\Constants\ReservationConstants;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -23,9 +24,9 @@ class ReservationRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'startDate' => 'required|date',
-            'endDate' => 'required|date',
-            'count' => 'required|integer',
+            ReservationConstants::START_DATE => 'required|date',
+            ReservationConstants::END_DATE   => 'required|date',
+            ReservationConstants::COUNT      => 'required|integer',
         ];
     }
 }

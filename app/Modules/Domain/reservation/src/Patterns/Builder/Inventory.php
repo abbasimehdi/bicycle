@@ -8,12 +8,10 @@ use Bicycle\Modules\Domain\Reservation\Enums\ReservationStatusEnum;
 
 class Inventory implements InventoryInterface
 {
-    protected Bicycle $bicycle;
-
     /**
      * @param Bicycle $bicycle
      */
-    public function __construct(Bicycle $bicycle)
+    public function __construct(protected Bicycle $bicycle)
     {
         $this->bicycle = $bicycle;
     }
@@ -24,14 +22,15 @@ class Inventory implements InventoryInterface
      */
     public function Inventory(string $date): mixed
     {
-        $inventory = $this->bicycle->inventory;
-        $reservation =(int) $this->bicycle->reservations()
-            ->whereNot('status', ReservationStatusEnum::CANCEL->value)
-            ->where(function ($query) use ($date) {
-                $query->whereDate('start', '<=', $date)
-                ->whereDate('end', '>=',$date);
-            })->sum('quantity');
-
-        return max($inventory-$reservation, 0);
+        return max(
+            $this->bicycle->inventory -
+            (int) $this->bicycle
+                ->reservations()
+                ->whereNot('status', ReservationStatusEnum::CANCEL->value)
+                ->where(function ($query) use ($date) {
+                    $query->whereDate('start', '<=', $date)
+                        ->whereDate('end', '>=',$date);
+                })->sum('quantity'),
+            0);
     }
 }

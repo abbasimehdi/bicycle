@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Modules\Domain\reservation\src\Models\Schemas;
+namespace Bicycle\Modules\Domain\Reservation\Models\Schemas;
 
 use Bicycle\Modules\Domain\Reservation\Enums\ReservationStatusEnum;
+use Bicycle\Modules\Domain\Reservation\Models\Schemas\Constants\ReservationConstants;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
@@ -15,16 +16,22 @@ class AddReservationSchema
     {
         Schema::create('reservations', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
-            $table->foreignId('bicycle_id');
-            $table->unsignedInteger('quantity');
-            $table->timestamp('start')->comment('start reservation date');
-            $table->timestamp('end')->comment('end reservation date');
-            $table->tinyInteger('status')->default(ReservationStatusEnum::PENDING->value);
+            $table->foreignId(ReservationConstants::USER_ID);
+            $table->foreignId(ReservationConstants::BICYCLE_ID);
+            $table->unsignedInteger(ReservationConstants::QUANTITY);
+            $table->timestamp(ReservationConstants::START)->comment('start reservation date');
+            $table->timestamp(ReservationConstants::END)->comment('end reservation date');
+            $table->tinyInteger(ReservationConstants::STATUS)->default(ReservationStatusEnum::PENDING->value);
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('no action');
-            $table->foreign('bicycle_id')->references('id')->on('bicycles')->onDelete('no action');
+            $table->foreign(ReservationConstants::USER_ID)
+                ->references(ReservationConstants::ID)
+                ->on('users')
+                ->onDelete('no action');
+            $table->foreign(ReservationConstants::BICYCLE_ID)
+                ->references(ReservationConstants::ID)
+                ->on(ReservationConstants::BICYCLES)
+                ->onDelete('no action');
         });
     }
 
@@ -33,6 +40,6 @@ class AddReservationSchema
      */
     public static function dropTable(): void
     {
-        Schema::dropIfExists('reservations');
+        Schema::dropIfExists(ReservationConstants::RESERVATIONS);
     }
 }

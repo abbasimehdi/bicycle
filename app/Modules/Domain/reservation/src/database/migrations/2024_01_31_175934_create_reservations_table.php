@@ -1,6 +1,6 @@
 <?php
 
-use App\Modules\Domain\reservation\src\Models\Schemas\AddReservationSchema;
+use Bicycle\Modules\Domain\Reservation\Models\Schemas\AddReservationSchema;
 use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration

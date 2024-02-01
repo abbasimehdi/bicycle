@@ -5,6 +5,7 @@ namespace Bicycle\Modules\Domain\Reservation\Models;
 use App\Models\User;
 use Bicycle\Modules\Domain\Bicycle\Models\Bicycle;
 use Bicycle\Modules\Domain\Reservation\database\factories\ReservationFactory;
+use Bicycle\Modules\Domain\Reservation\Models\Schemas\Constants\ReservationConstants;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -14,7 +15,14 @@ class Reservation extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id', 'bicycle_id ', 'quantity', 'start', 'end', 'status'];
+    protected $fillable = [
+        ReservationConstants::USER_ID,
+        ReservationConstants::BICYCLE_ID,
+        ReservationConstants::QUANTITY,
+        ReservationConstants::START,
+        ReservationConstants::END,
+        ReservationConstants::STATUS
+    ];
 
     protected $hidden = ['id'];
     /**

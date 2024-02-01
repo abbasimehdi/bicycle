@@ -6,6 +6,7 @@ use App\Models\User;
 use Bicycle\Modules\Domain\Bicycle\Models\Bicycle;
 use Bicycle\Modules\Domain\Reservation\Enums\ReservationStatusEnum;
 use Bicycle\Modules\Domain\Reservation\Models\Reservation;
+use Bicycle\Modules\Domain\Reservation\Models\Schemas\Constants\ReservationConstants;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -14,6 +15,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 class ReservationFactory extends Factory
 {
     protected $model = Reservation::class;
+
     /**
      * Define the model's default state.
      *
@@ -25,19 +27,25 @@ class ReservationFactory extends Factory
 
         $start = $this->faker->dateTimeBetween('-1 days', '+10 days');
         return [
-            'user_id' => User::query()->inRandomOrder()->first()->id,
-            'bicycle_id' => $bicycle->id,
-            'start' => $start,
-            'end' => $this->faker->dateTimeBetween($start, $start->format('Y-m-d H:i:s') . ' +2 days'),
-            'status' => $this->randEnum(ReservationStatusEnum::class),
-            'quantity' => rand(1, $bicycle->quantity),
+            ReservationConstants::USER_ID    => User::query()->inRandomOrder()->first()->id,
+            ReservationConstants::BICYCLE_ID => $bicycle->id,
+            ReservationConstants::START      => $start,
+            ReservationConstants::END        => $this->faker->dateTimeBetween(
+                $start,$start->format('Y-m-d H:i:s') . ' +2 days'
+            ),
+            ReservationConstants::STATUS     => $this->randEnum(ReservationStatusEnum::class),
+            ReservationConstants::QUANTITY   => rand(1, $bicycle->quantity),
         ];
     }
 
-    protected function randEnum($enum)
+    /**
+     * @param $enum
+     * @return mixed
+     */
+    protected function randEnum($enum): mixed
     {
         $statuses = $enum::cases();
-        $values = array_column($statuses, 'value');
+        $values = array_column($statuses, ReservationConstants::VALUE);
         return $values[array_rand($values)];
     }
 }

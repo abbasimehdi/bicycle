@@ -27,7 +27,7 @@ class ReservationRepository extends BaseRepository
 
     /**
      * @param array $data
-     * @param $id
+     * @param $bicycle
      * @return JsonResponse
      * @throws \Exception
      */
@@ -47,7 +47,7 @@ class ReservationRepository extends BaseRepository
     }
 
     /**
-     * @param int $id
+     * @param $reservation
      * @return JsonResponse
      */
     public function cancel($reservation): JsonResponse

@@ -20,6 +20,7 @@ class Bicycle extends Model
 
     protected $appends = ['active_inventory'];
 
+    protected $primaryKey= "id";
     /**
      * @return void
      */

@@ -17,3 +17,7 @@ Route::middleware(['auth:api'])->group(function () {
             );
         });
 });
+
+Route::get('users/{user}', function (User $user) {
+    dd($user);
+});

@@ -2,9 +2,14 @@
 
 namespace Bicycle\Modules\Domain\Reservation\Http\Controllers;
 
+use Bicycle\Modules\Domain\Bicycle\Models\Bicycle;
+use Bicycle\Modules\Domain\Core\Exceptions\CustomException;
 use Bicycle\Modules\Domain\Reservation\Contracts\ReservationInterface;
 use Bicycle\Modules\Domain\Reservation\Http\Requests\ReservationRequest;
+use Bicycle\Modules\Domain\Reservation\Models\Reservation;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\JsonResponse;
+use Symfony\Component\HttpFoundation\Response as ResponseAlias;
 
 class ReservationController
 {
@@ -23,7 +28,12 @@ class ReservationController
      */
     public function reservation(ReservationRequest $request, $id): JsonResponse
     {
-        return $this->reservationInterface->reservation($request->all(), $id);
+        try {
+            return $this->reservationInterface->reservation($request->all(),
+                 Bicycle::query()->findOrFail($id));
+        } catch (ModelNotFoundException $exception) {
+            return (new CustomException())->message($exception, ResponseAlias::HTTP_NOT_FOUND);
+        }
     }
 
     /**
@@ -32,6 +42,10 @@ class ReservationController
      */
     public function cancel(int $id): JsonResponse
     {
-        return $this->reservationInterface->cancel($id);
+        try {
+            return $this->reservationInterface->cancel(Reservation::query()->findOrFail($id));
+        } catch (ModelNotFoundException $exception) {
+            return (new CustomException())->message($exception, ResponseAlias::HTTP_NOT_FOUND);
+        }
     }
 }

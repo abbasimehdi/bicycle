@@ -33,6 +33,7 @@ class RegisterRequest extends FormRequest
                 Rule::unique('users', 'email'),
                 new EmailValidation()
             ],
+            "username"    => "required|min:3|max:16",
             "password"    => "required|min:6|max:16"
         ];
     }

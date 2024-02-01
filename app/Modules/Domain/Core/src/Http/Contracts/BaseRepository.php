@@ -29,13 +29,12 @@ abstract class BaseRepository implements BaseRepositoryInterface
     }
 
     /**
-     * @param $request
-     * @param  int  $limit
+     * @param int $limit
      * @return mixed
      */
-    public function paginate($request, int $limit = BaseConstants::LIMIT): JsonResponse
+    public function paginate(int $limit = BaseConstants::LIMIT): JsonResponse
     {
-        return response()->json($this->model->orderBy('id', 'desc')->get());
+        return response()->json($this->model->orderBy('id', 'desc')->paginate($limit));
     }
 
     /**
@@ -54,7 +53,7 @@ abstract class BaseRepository implements BaseRepositoryInterface
      */
     public function create(array $data)
     {
-        return response()->json($this->model->create($data));
+        return $this->model->create($data);
     }
 
     /**

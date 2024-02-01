@@ -9,4 +9,5 @@ class ProfileConstants
 
     const CONTROLLER_ROUTE = 'Bicycle\Modules\Domain\Profile\Http\Controllers';
     const MIGRATION_ROUTE = '/database/migrations';
+    const PROFILE = 'profile';
 }

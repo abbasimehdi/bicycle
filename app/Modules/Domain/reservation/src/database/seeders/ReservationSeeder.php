@@ -3,6 +3,7 @@
 namespace Bicycle\Modules\Domain\Reservation\database\seeders;
 
 use Bicycle\Modules\Domain\Reservation\Models\Reservation;
+use Bicycle\Modules\Domain\Reservation\Models\Schemas\Constants\ReservationConstants;
 use Illuminate\Database\Seeder;
 
 class ReservationSeeder extends Seeder
@@ -12,6 +13,6 @@ class ReservationSeeder extends Seeder
      */
     public function run(): void
     {
-        Reservation::factory(10)->create();
+        Reservation::factory(ReservationConstants::FACTORY_LIMIT)->create();
     }
 }

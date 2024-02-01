@@ -20,7 +20,7 @@ class ReservationService implements ReservationInterface
 
     /**
      * @param array $data
-     * @param $id
+     * @param $bicycle
      * @return JsonResponse
      * @throws Exception
      */
@@ -30,7 +30,7 @@ class ReservationService implements ReservationInterface
     }
 
     /**
-     * @param array $reservation
+     * @param Reservation $reservation
      * @return JsonResponse
      */
     public function cancel(Reservation $reservation): JsonResponse

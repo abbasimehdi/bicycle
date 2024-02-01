@@ -2,6 +2,7 @@
 
 namespace Bicycle\Modules\Domain\Bicycle\Models\Schemas;
 
+use App\Modules\Domain\bicycle\src\Models\Schemas\Constants\BicycleConstants;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
@@ -14,9 +15,9 @@ class AddBicycleSchema
     {
         Schema::create('bicycles', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->unsignedInteger('inventory');
-            $table->boolean('is_active')->default(0);
+            $table->string(BicycleConstants::TITLE);
+            $table->unsignedInteger(BicycleConstants::INVENTORY);
+            $table->boolean(BicycleConstants::IS_ACTIVE)->default(0);
             $table->timestamps();
         });
     }

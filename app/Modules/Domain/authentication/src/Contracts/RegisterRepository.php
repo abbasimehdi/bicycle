@@ -24,16 +24,9 @@ class RegisterRepository extends BaseRepository
      */
     public function register($data): JsonResponse
     {
-        $user = User::query()->create([
-            'name'     => $data['name'],
-            'email'     => $data['email'],
-            'username'     => $data['username'],
-            'password' => bcrypt($data['password'])
-        ]);
-
-        $token = $user->createToken('API Token')->accessToken;
-
-        return (new BaseListCollection(collect(['token' => $token])))
+        return (new BaseListCollection(collect([
+            'token' => $this->create($data)->createToken('API Token')->accessToken]))
+        )
             ->response()
             ->setStatusCode(ResponseAlias::HTTP_CREATED);
     }

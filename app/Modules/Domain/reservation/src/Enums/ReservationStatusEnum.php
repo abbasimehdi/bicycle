@@ -10,6 +10,10 @@ enum ReservationStatusEnum: int
     case DELIVERED = 1;
     case CANCEL = 2;
 
+    /**
+     * @param $value
+     * @return string
+     */
     public static function label($value): string
     {
         foreach (self::cases() as $case) {
@@ -17,7 +21,7 @@ enum ReservationStatusEnum: int
                 return strtolower($case->name);
             }
         }
+
         throw new InvalidArgumentException('Invalid value: ' . $value);
     }
-
 }

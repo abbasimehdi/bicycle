@@ -2,6 +2,7 @@
 
 namespace Bicycle\Modules\Domain\Authentication\Http\Requests;
 
+use Bicycle\Modules\Domain\Authentication\Models\Schemas\Constants\AuthConstants;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -18,13 +19,13 @@ class LoginRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, ValidationRule|array<mixed>|string>
+     * @return array<string, ValidationRule|array|string>
      */
     public function rules(): array
     {
         return [
-            "email"     => "required|min:7|max:64|exists:users,email",
-            "password"  => "required|min:6|max:16"
+            AuthConstants::EMAIL    => "required|min:7|max:64|exists:users,email",
+            AuthConstants::PASSWORD => "required|min:6|max:16"
         ];
     }
 }

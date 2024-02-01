@@ -29,5 +29,4 @@ class ReservationServiceProvider extends ServiceProvider
             ->namespace(ReservationConstants::CONTROLLER_ROUTE)
             ->group(__DIR__.ReservationConstants::API_ROUTE);
     }
-
 }

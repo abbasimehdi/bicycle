@@ -10,22 +10,18 @@ use Symfony\Component\HttpFoundation\Response as ResponseAlias;
 
 class CancelReservationBuilder implements CancelInterface, CheckCancelStatusInterface
 {
-    protected Reservation $reservation;
-
     /**
      * @param Reservation $reservation
      */
-    public function __construct(Reservation $reservation)
+    public function __construct(protected Reservation $reservation)
     {
         $this->reservation = $reservation;
     }
 
-    /**
-     * @return bool
-     */
-    public function cancel(): bool
+    public function cancel()
     {
-        return $this->reservation->update(['status' => ReservationStatusEnum::CANCEL->value]);
+        $this->reservation->update(['status' => ReservationStatusEnum::CANCEL->value]);
+        return $this->reservation;
     }
 
     /**

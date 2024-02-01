@@ -9,7 +9,7 @@ interface BaseRepositoryInterface
 {
     public function all(): JsonResponse;
 
-    public function paginate(Request $request, int $limit = 15): JsonResponse;
+    public function paginate(int $limit = 15): JsonResponse;
 
     public function getBy($col, $value, int $limit = 15): JsonResponse;
 

@@ -2,6 +2,7 @@
 
 namespace Bicycle\Modules\Domain\Authentication\Http\Requests;
 
+use Bicycle\Modules\Domain\Authentication\Models\Schemas\Constants\AuthConstants;
 use Bicycle\Modules\Domain\Authentication\Rules\EmailValidation;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
@@ -25,16 +26,16 @@ class RegisterRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "name"        => "required|min:3|max:32",
-            "email"       => [
+            AuthConstants::NAME        => "required|min:3|max:32",
+            AuthConstants::EMAIL       => [
                 "required",
                 "min:7",
                 "max:64",
                 Rule::unique('users', 'email'),
                 new EmailValidation()
             ],
-            "username"    => "required|min:3|max:16",
-            "password"    => "required|min:6|max:16"
+            AuthConstants::USERNAME    => "required|unique:users|min:3|max:16",
+            AuthConstants::PASSWORD    => "required|min:6|max:16"
         ];
     }
 }

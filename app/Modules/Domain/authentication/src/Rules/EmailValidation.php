@@ -24,6 +24,6 @@ class EmailValidation implements Rule
      */
     public function message(): Application|array|string|Translator|null
     {
-        return __('The email field must be a valid email address');
+        return __('error.not_valid_email');
     }
 }

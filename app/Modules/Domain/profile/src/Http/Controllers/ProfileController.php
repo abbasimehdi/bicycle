@@ -8,11 +8,11 @@ use Illuminate\Http\JsonResponse;
 class ProfileController
 {
     /**
-     * @param ProfileInterface $profileinterface
+     * @param ProfileInterface $profileInterface
      */
-    public function __construct(public ProfileInterface $profileinterface)
+    public function __construct(public ProfileInterface $profileInterface)
     {
-        $this->profileinterface = $profileinterface;
+        $this->profileInterface = $profileInterface;
     }
 
     /**
@@ -20,6 +20,6 @@ class ProfileController
      */
     public function profile(): JsonResponse
     {
-        return $this->profileinterface->profile();
+        return $this->profileInterface->profile();
     }
 }

@@ -10,6 +10,7 @@ class BaseConstants
 
     const STR_RANDOM = 10;
     const TOKEN = 'token';
+    const ADMIN = 'admin';
 
     const ALL_SLUGS = [
         self::DEFAULT_USER,

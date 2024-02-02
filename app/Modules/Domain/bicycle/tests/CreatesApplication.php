@@ -1,6 +1,6 @@
 <?php
 
-namespace SelfOfficeName\Modules\Domain\Product\tests;
+namespace Bicycle\Modules\Domain\Bicycle\Tests;
 
 use Illuminate\Contracts\Console\Kernel;
 use Illuminate\Foundation\Application;
@@ -12,7 +12,7 @@ trait CreatesApplication
      *
      * @return Application
      */
-    public function createApplication()
+    public function createApplication(): Application
     {
         $app = require_once __DIR__.'/../../../../bootstrap/app.php';
 

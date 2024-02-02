@@ -24,6 +24,7 @@ class BicycleTest extends TestCase
         parent::setUp();
         Artisan::call('passport:install');
         $this->user = User::factory(1)->create(['password' => 123456])->first();
+        $this->bicycle = Bicycle::factory()->create();
         $this->token = $this->user->createToken('test token')->accessToken;
     }
 
@@ -55,5 +56,23 @@ class BicycleTest extends TestCase
         ]);
 
         $response->assertStatus(200);
+    }
+
+    /**
+     * @test
+     */
+    public function check_bicycle_model_exists()
+    {
+        $this->assertModelExists($this->bicycle);
+    }
+
+    /**
+     * @test
+     */
+    public function check_bicycle_model_does_not_exists()
+    {
+        $this->bicycle->delete();
+
+        $this->assertModelMissing($this->bicycle);
     }
 }

@@ -21,10 +21,11 @@ class reservationTest extends TestCase
     public function setUp(): void
     {
         parent::setUp();
+        Artisan::call('migrate:fresh --seed');
         Artisan::call('passport:install');
         $this->password = "123456";
         $this->user = User::factory(1)->create(['password' => $this->password])->first();
-        $this->bicycle = Bicycle::factory(10)->create()->first();
+        $this->bicycle = Bicycle::query()->inRandomOrder()->first();
         $this->token = $this->user->createToken('test token')->accessToken;
     }
 

@@ -11,8 +11,17 @@
         <testsuite name="Feature">
             <directory>tests/Feature</directory>
         </testsuite>
-        <testsuite name="transaction">
+        <testsuite name="authentication">
             <directory suffix="Test.php">./app/Modules/Domain/authentication/tests</directory>
+        </testsuite>
+        <testsuite name="bicycle">
+            <directory suffix="Test.php">./app/Modules/Domain/bicycle/tests</directory>
+        </testsuite>
+        <testsuite name="profile">
+            <directory suffix="Test.php">./app/Modules/Domain/profile/tests</directory>
+        </testsuite>
+        <testsuite name="reservation">
+            <directory suffix="Test.php">./app/Modules/Domain/reservation/tests</directory>
         </testsuite>
     </testsuites>
     <source>

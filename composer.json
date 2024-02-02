@@ -37,7 +37,10 @@
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests/",
-            "Bicycle\\Modules\\Domain\\Authentication\\Tests\\": "app/Modules/Domain/authentication/tests"
+            "Bicycle\\Modules\\Domain\\Authentication\\Tests\\": "app/Modules/Domain/authentication/tests",
+            "Bicycle\\Modules\\Domain\\Bicycle\\Tests\\": "app/Modules/Domain/bicycle/tests",
+            "Bicycle\\Modules\\Domain\\Profile\\Tests\\": "app/Modules/Domain/profile/tests",
+            "Bicycle\\Modules\\Domain\\Reservation\\Tests\\": "app/Modules/Domain/reservation/tests"
         }
     },
     "scripts": {

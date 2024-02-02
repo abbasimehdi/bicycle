@@ -32,7 +32,7 @@ class ReservationController
             return $this->reservationInterface->reservation($request->all(),
                  Bicycle::query()->findOrFail($id));
         } catch (ModelNotFoundException $exception) {
-            return (new CustomException())->message($exception, ResponseAlias::HTTP_NOT_FOUND);
+            return (new CustomException())->message($exception->getMessage(), ResponseAlias::HTTP_NOT_FOUND);
         }
     }
 
@@ -45,7 +45,7 @@ class ReservationController
         try {
             return $this->reservationInterface->cancel(Reservation::query()->findOrFail($id));
         } catch (ModelNotFoundException $exception) {
-            return (new CustomException())->message($exception, ResponseAlias::HTTP_NOT_FOUND);
+            return (new CustomException())->message($exception->getMessage(), ResponseAlias::HTTP_NOT_FOUND);
         }
     }
 }

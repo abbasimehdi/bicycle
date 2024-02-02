@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Artisan;
 use Tests\TestCase;
+use Symfony\Component\HttpFoundation\Response as ResponseAlias;
 
 class BicycleTest extends TestCase
 {
@@ -35,7 +36,7 @@ class BicycleTest extends TestCase
             ]
         ]);
 
-        $response->assertStatus(200);
+        $response->assertStatus(ResponseAlias::HTTP_OK);
     }
 
     /**

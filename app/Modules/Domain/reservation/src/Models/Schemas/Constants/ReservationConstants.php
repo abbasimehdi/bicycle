@@ -26,5 +26,5 @@ class ReservationConstants
     const CREATED_AT = 'created_at';
     const MESSAGE = 'message';
     const DATA = 'data';
-    const BASE_FACTORY_LIMIT = 1;
+    const BASE_LIMIT = 1;
 }

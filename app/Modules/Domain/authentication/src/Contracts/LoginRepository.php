@@ -30,7 +30,7 @@ class LoginRepository extends BaseRepository
 
         return (new BaseListCollection(collect(
             [
-                'token' => auth()->user()->createToken(AuthConstants::TOKEN_NAMe)->accessToken
+                'token' => auth()->user()->createToken(AuthConstants::TOKEN_NAME)->accessToken
             ]
         )))
             ->response()

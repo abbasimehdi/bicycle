@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Bicycle\Modules\Domain\Authentication\Models\Schemas\Constants\AuthConstants;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -23,10 +24,10 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
-        'email',
-        'username',
-        'password',
+        AuthConstants::NAME,
+        AuthConstants::EMAIL,
+        AuthConstants::USERNAME,
+        AuthConstants::PASSWORD,
     ];
 
     protected $primaryKey = 'id';

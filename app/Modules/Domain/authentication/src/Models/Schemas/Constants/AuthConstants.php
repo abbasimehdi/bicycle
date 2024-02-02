@@ -20,6 +20,7 @@ class AuthConstants
     const EMAIL = 'email';
     const PASSWORD = 'password';
     const USERNAME = 'username';
-    const TOKEN_NAMe = 'API Token';
+    const USER_ID = 'user_id';
+    const TOKEN_NAME = 'API Token';
     const ERROR_MESSAGE = 'error_message';
 }

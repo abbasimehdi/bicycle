@@ -25,12 +25,13 @@ class ReservationFactory extends Factory
     public function definition(): array
     {
         $this->bicycle = Bicycle::query()->inRandomOrder()->first() ??
-            Bicycle::factory()->create(ReservationConstants::BASE_FACTORY_LIMIT);
+            Bicycle::factory()->create();
 
         $start = $this->faker->dateTimeBetween('-1 days', '+10 days');
 
         return [
-            ReservationConstants::USER_ID    => User::query()->inRandomOrder()->first()->id,
+            ReservationConstants::USER_ID    => User::query()->inRandomOrder()->first()?->id ??
+                User::factory()->create()->id,
             ReservationConstants::BICYCLE_ID => $this->bicycle->id,
             ReservationConstants::START      => $start,
             ReservationConstants::END        => $this->faker->dateTimeBetween(

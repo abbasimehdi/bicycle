@@ -43,7 +43,7 @@ class ReservationRepository extends BaseRepository
                 ->reservation()
         ))
             ->response()
-            ->setStatusCode(ResponseAlias::HTTP_OK);
+            ->setStatusCode(ResponseAlias::HTTP_CREATED);
     }
 
     /**
@@ -59,14 +59,5 @@ class ReservationRepository extends BaseRepository
         ))
             ->response()
             ->setStatusCode(ResponseAlias::HTTP_OK);
-    }
-
-    /**
-     * @param $id
-     * @return Model|Collection|Builder|array|null
-     */
-    public function findBicycle($id): Model|Collection|Builder|array|null
-    {
-        return Bicycle::query()->find($id);
     }
 }

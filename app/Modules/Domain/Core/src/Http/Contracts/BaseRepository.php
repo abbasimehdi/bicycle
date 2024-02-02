@@ -32,7 +32,7 @@ abstract class BaseRepository implements BaseRepositoryInterface
      * @param int $limit
      * @return mixed
      */
-    public function paginate(int $limit = BaseConstants::LIMIT): JsonResponse
+    public function paginate(int|null $limit = BaseConstants::LIMIT): JsonResponse
     {
         return response()->json($this->model->orderBy('id', 'desc')->paginate($limit));
     }

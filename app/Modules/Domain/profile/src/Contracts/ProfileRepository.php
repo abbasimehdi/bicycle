@@ -25,6 +25,6 @@ class ProfileRepository extends BaseRepository
     {
         return (new BaseListCollection(collect(['profile' => \auth('api')->user()])))
             ->response()
-            ->setStatusCode(ResponseAlias::HTTP_INTERNAL_SERVER_ERROR);
+            ->setStatusCode(ResponseAlias::HTTP_OK);
     }
 }

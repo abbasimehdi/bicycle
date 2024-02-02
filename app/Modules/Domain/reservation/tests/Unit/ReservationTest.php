@@ -22,6 +22,7 @@ class ReservationTest extends TestCase
         parent::setUp();
         Artisan::call('passport:install');
         $this->user = User::factory(1)->create(['password' => 123456])->first();
+        $this->reservations = Reservation::factory()->create();
         $this->token = $this->user->createToken('test token')->accessToken;
     }
 
@@ -40,5 +41,23 @@ class ReservationTest extends TestCase
                     ReservationConstants::END,
                     ReservationConstants::STATUS
                 ]));
+    }
+
+    /**
+     * @test
+     */
+    public function check_reservation_model_exists()
+    {
+        $this->assertModelExists($this->reservations);
+    }
+
+    /**
+     * @test
+     */
+    public function check_reservation_model_does_not_exists()
+    {
+        $this->reservations->delete();
+
+        $this->assertModelMissing($this->reservations);
     }
 }

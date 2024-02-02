@@ -5,6 +5,7 @@ namespace Bicycle\Modules\Domain\Authentication\Tests\Unit;
 use App\Models\User;
 use Bicycle\Modules\Domain\Authentication\Models\Schemas\Constants\AuthConstants;
 use Bicycle\Modules\Domain\Bicycle\Models\Bicycle;
+use Bicycle\Modules\Domain\Core\Models\Schemas\Constants\BaseConstants;
 use Bicycle\Modules\Domain\Reservation\Models\Reservation;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Artisan;
@@ -22,6 +23,7 @@ class AuthenticationTest extends TestCase
     {
         parent::setUp();
         Artisan::call('passport:install');
+        Artisan::call('db:seed');
         $this->user = User::factory(1)->create(['password' => 123456])->first();
     }
 
@@ -47,13 +49,21 @@ class AuthenticationTest extends TestCase
         $bicycle = Bicycle::factory()->create();
 
         $reservation = Reservation::factory()->create([
-            'user_id'    => $user->id,
-            'bicycle_id' => $bicycle->id,
+            AuthConstants::USER_ID    => $user->id,
+            BaseConstants::BICYCLE_ID => $bicycle->id,
         ]);
 
         $bicycleReservations = $bicycle->reservations;
 
         $this->assertInstanceOf(Reservation::class, $bicycleReservations->first());
         $this->assertEquals($reservation->id, $bicycleReservations->first()->id);
+    }
+
+    /**
+     * @test
+     */
+    public function check_user_model_exists()
+    {
+        $this->assertModelExists($this->user);
     }
 }

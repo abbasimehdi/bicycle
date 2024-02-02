@@ -43,10 +43,11 @@ class AuthenticationTest extends TestCase
     /** @test */
     public function it_has_many_reservation()
     {
-        $user1 = User::factory()->create();
+        $user = User::factory()->create();
         $bicycle = Bicycle::factory()->create();
+
         $reservation = Reservation::factory()->create([
-            'user_id' => $user1->id,
+            'user_id'    => $user->id,
             'bicycle_id' => $bicycle->id,
         ]);
 

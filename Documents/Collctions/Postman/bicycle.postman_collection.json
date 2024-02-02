@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "130af2d0-7abd-4e37-b108-3dba037a75f1",
-		"name": "transactions",
+		"name": "bicycle",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "2281221"
 	},
@@ -192,21 +192,19 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8000/api/v1/bicycle?limit=10",
-							"protocol": "http",
+							"raw": "{{url}}/{{prefix}}/{{version}}/bicycle?limit=4",
 							"host": [
-								"localhost"
+								"{{url}}"
 							],
-							"port": "8000",
 							"path": [
-								"api",
-								"v1",
+								"{{prefix}}",
+								"{{version}}",
 								"bicycle"
 							],
 							"query": [
 								{
 									"key": "limit",
-									"value": "10"
+									"value": "4"
 								}
 							]
 						}
@@ -219,7 +217,7 @@
 			"name": "reservation",
 			"item": [
 				{
-					"name": "list",
+					"name": "reserve",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -254,7 +252,7 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/{{prefix}}/{{version}}/bicycles/446/reservation",
+							"raw": "{{url}}/{{prefix}}/{{version}}/bicycles/1/reservation",
 							"host": [
 								"{{url}}"
 							],
@@ -262,7 +260,7 @@
 								"{{prefix}}",
 								"{{version}}",
 								"bicycles",
-								"446",
+								"1",
 								"reservation"
 							]
 						}
@@ -305,7 +303,7 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/{{prefix}}/{{version}}/admin/reservations/68/cancel",
+							"raw": "{{url}}/{{prefix}}/{{version}}/admin/reservations/3/cancel",
 							"host": [
 								"{{url}}"
 							],
@@ -314,7 +312,7 @@
 								"{{version}}",
 								"admin",
 								"reservations",
-								"68",
+								"3",
 								"cancel"
 							]
 						}

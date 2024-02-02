@@ -38,4 +38,20 @@ class ProfileTest extends TestCase
 
         $response->assertStatus(ResponseAlias::HTTP_OK);
     }
+
+    /**
+     * @test
+     */
+    public function unauthenticated_user_cannot_see_own_profile(): void
+    {
+        $response = $this->json('GET', '/api/v1/profile', [
+            'headers' => [
+                'Accept' => 'application/json',
+                'Content-Type' => 'application/json',
+                'Authorization' => "Bearer $this->token",
+            ]
+        ]);
+
+        $response->assertUnauthorized();
+    }
 }

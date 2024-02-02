@@ -6,5 +6,5 @@ use Illuminate\Http\JsonResponse;
 
 interface BicycleInterface
 {
-    public function all(int $limit): JsonResponse;
+    public function all(int|null $limit): JsonResponse;
 }

@@ -20,14 +20,13 @@ class BicycleService implements BicycleInterface
     }
 
     /**
-     * @param int $limit
+     * @param int|null $limit
      * @return JsonResponse
      */
-    public function all(int $limit): JsonResponse
+    public function all(int|null $limit): JsonResponse
     {
         return (new BaseListCollection(collect([$this->bicycleRepository->paginate($limit)])))
             ->response()
             ->setStatusCode(ResponseAlias::HTTP_OK);
     }
-
 }

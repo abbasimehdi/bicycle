@@ -32,7 +32,7 @@ class reservationTest extends TestCase
     /**
      * @test
      */
-    public function a_user_can_be_show_reserved_bicycle_logs(): void
+    public function a_user_can_be_see_reserved_bicycle_logs(): void
     {;
         $response = $this->withHeader('Accept', "application/json")
             ->actingAs($this->user, 'api')
@@ -45,5 +45,21 @@ class reservationTest extends TestCase
         );
 
         $response->assertStatus(ResponseAlias::HTTP_CREATED);
+    }
+
+    /**
+     * @test
+     */
+    public function a_user_can_be_see_reserved_bicycle_validation(): void
+    {
+        $response = $this->withHeader('Accept', "application/json")
+            ->actingAs($this->user, 'api')
+            ->json('POST', "/api/v1/bicycles/".$this->bicycle->id."/reservation" ,
+                [
+                    ReservationConstants::COUNT => ReservationConstants::BASE_LIMIT,
+                ]
+            );
+
+        $response->assertUnprocessable();
     }
 }

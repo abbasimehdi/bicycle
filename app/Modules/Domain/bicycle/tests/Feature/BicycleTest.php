@@ -37,4 +37,20 @@ class BicycleTest extends TestCase
 
         $response->assertStatus(200);
     }
+
+    /**
+     * @test
+     */
+    public function unauthenticated_user_cannot_see_the_bicycle_list(): void
+    {
+        $response = $this->json('GET', '/api/v1/bicycle', [
+            'headers' => [
+                'Accept' => 'application/json',
+                'Content-Type' => 'application/json',
+                'Authorization' => "Bearer $this->token",
+            ]
+        ]);
+
+        $response->assertUnauthorized();
+    }
 }

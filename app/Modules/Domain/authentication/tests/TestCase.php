@@ -1,6 +1,6 @@
 <?php
 
-namespace SelfOfficeName\Modules\Domain\Product\tests;
+namespace Bicycle\Modules\Domain\Authentication\Tests;
 
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
 

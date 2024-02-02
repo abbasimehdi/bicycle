@@ -1,12 +1,11 @@
 <?php
 
-namespace Selfofficename\Modules\Domain\Transaction\tests\Feature;
+namespace Bicycle\Modules\Domain\Authentication\Tests\Feature;
 
+use App\Models\User;
+use Bicycle\Modules\Domain\Authentication\Models\Schemas\Constants\AuthConstants;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Support\Facades\Artisan;
-use Selfofficename\Modules\Domain\Account\Models\Account;
-use Selfofficename\Modules\Domain\Card\Models\Card;
-use Selfofficename\Modules\InfraStructure\Models\User;
 use Tests\TestCase;
 use Symfony\Component\HttpFoundation\Response as ResponseAlias;
 
@@ -30,10 +29,10 @@ class AuthenticationTest extends TestCase
         $response = $this->withHeader('Accept', "application/json")
             ->json('POST', "/api/auth/register" ,
             [
-                'name'      => fake()->name,
-                'email'      => fake()->unique()->email,
-                'mobile'      => "09". mt_rand(111111111, 999999999),
-                'password'      => fake()->numberBetween(111111, 999999),
+                AuthConstants::NAME     => fake()->name,
+                AuthConstants::EMAIL    => fake()->unique()->email,
+                AuthConstants::USERNAME => fake()->unique()->userName,
+                AuthConstants::PASSWORD => fake()->numberBetween(111111, 999999),
             ]
         );
 
@@ -48,8 +47,8 @@ class AuthenticationTest extends TestCase
         $response = $this->withHeader('Accept', "application/json")
             ->json('POST', "/api/auth/login" ,
                 [
-                    'email'      => $this->user->email,
-                    'password'      => $this->password,
+                    AuthConstants::EMAIL    => $this->user->email,
+                    AuthConstants::PASSWORD => $this->password,
                 ]
             );
 

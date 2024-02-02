@@ -1,23 +1,19 @@
 <?php
 
-namespace Selfofficename\Modules\Domain\Transaction\tests\Unit;
+namespace Bicycle\Modules\Domain\Authentication\Tests\Unit;
 
-use Illuminate\Foundation\Testing\DatabaseMigrations;
+use App\Models\User;
+use Bicycle\Modules\Domain\Authentication\Models\Schemas\Constants\AuthConstants;
+use Bicycle\Modules\Domain\Bicycle\Models\Bicycle;
+use Bicycle\Modules\Domain\Reservation\Models\Reservation;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Artisan;
-use Selfofficename\Modules\Core\Traits\ConvertNumberToEnglish;
-use Selfofficename\Modules\Core\Traits\ConvertNumberToPersian;
-use Selfofficename\Modules\Domain\Account\Models\Account;
-use Selfofficename\Modules\Domain\Card\Models\Card;
-use Selfofficename\Modules\Domain\Commission\Models\Commission;
-use Selfofficename\Modules\Domain\Transaction\Models\Transaction;
-use Selfofficename\Modules\InfraStructure\Models\User;
+use Illuminate\Support\Facades\Schema;
 use Tests\TestCase;
 
 class AuthenticationTest extends TestCase
 {
-    use DatabaseMigrations;
-    use ConvertNumberToEnglish;
-    use ConvertNumberToPersian;
+    use RefreshDatabase;
 
     /**
      * @return void
@@ -27,9 +23,36 @@ class AuthenticationTest extends TestCase
         parent::setUp();
         Artisan::call('passport:install');
         $this->user = User::factory(1)->create(['password' => 123456])->first();
-        $this->account = Account::factory(1)->create()->first();
-        $this->card = Card::factory(1)->create()->first();
-        $this->transaction = Transaction::factory(1)->create()->first();
-        $this->commission = Commission::factory(1)->create()->first();
+    }
+
+    /**
+     * @test
+     */
+    public function a_user_table_has_expected_columns()
+    {
+        $this->assertTrue(
+            Schema::hasColumns('users',
+                [
+                    AuthConstants::NAME,
+                    AuthConstants::EMAIL,
+                    AuthConstants::USERNAME,
+                    AuthConstants::PASSWORD,
+                ]));
+    }
+
+    /** @test */
+    public function it_has_many_reservation()
+    {
+        $user1 = User::factory()->create();
+        $bicycle = Bicycle::factory()->create();
+        $reservation = Reservation::factory()->create([
+            'user_id' => $user1->id,
+            'bicycle_id' => $bicycle->id,
+        ]);
+
+        $bicycleReservations = $bicycle->reservations;
+
+        $this->assertInstanceOf(Reservation::class, $bicycleReservations->first());
+        $this->assertEquals($reservation->id, $bicycleReservations->first()->id);
     }
 }

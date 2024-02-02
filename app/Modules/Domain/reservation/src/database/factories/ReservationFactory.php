@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 class ReservationFactory extends Factory
 {
     protected $model = Reservation::class;
+    protected $bicycle;
 
     /**
      * Define the model's default state.
@@ -23,18 +24,20 @@ class ReservationFactory extends Factory
      */
     public function definition(): array
     {
-        $bicycle = Bicycle::query()->inRandomOrder()->first();
+        $this->bicycle = Bicycle::query()->inRandomOrder()->first() ??
+            Bicycle::factory()->create(ReservationConstants::BASE_FACTORY_LIMIT);
 
         $start = $this->faker->dateTimeBetween('-1 days', '+10 days');
+
         return [
             ReservationConstants::USER_ID    => User::query()->inRandomOrder()->first()->id,
-            ReservationConstants::BICYCLE_ID => $bicycle->id,
+            ReservationConstants::BICYCLE_ID => $this->bicycle->id,
             ReservationConstants::START      => $start,
             ReservationConstants::END        => $this->faker->dateTimeBetween(
                 $start,$start->format('Y-m-d H:i:s') . ' +2 days'
             ),
             ReservationConstants::STATUS     => $this->randEnum(ReservationStatusEnum::class),
-            ReservationConstants::QUANTITY   => rand(1, $bicycle->quantity),
+            ReservationConstants::QUANTITY   => rand(1, $this->bicycle->quantity),
         ];
     }
 

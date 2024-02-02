@@ -293,15 +293,6 @@
 								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"startDate\": \"2023/01/01\",\n    \"endDate\": \"2024/12/29\",\n    \"count\": 1\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
 						"url": {
 							"raw": "{{url}}/{{prefix}}/{{version}}/admin/reservations/3/cancel",
 							"host": [

@@ -3,6 +3,7 @@
 namespace Bicycle\Modules\Domain\Reservation\Tests\Unit;
 
 use App\Models\User;
+use Bicycle\Modules\Domain\Reservation\Models\Reservation;
 use Bicycle\Modules\Domain\Reservation\Models\Schemas\Constants\ReservationConstants;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Artisan;

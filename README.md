@@ -16,6 +16,7 @@
 -  sudo docker-compose exec bicycle_app php artisan optimize:clear
 -  sudo docker-compose exec bicycle_app php artisan migrate --seed
 -  sudo docker-compose exec bicycle_app php artisan passport:install
+- composer du
 - http://your_local_ip:8080
 
 ## Test sections

@@ -10,12 +10,13 @@ use Symfony\Component\HttpFoundation\Response as ResponseAlias;
 class CustomException extends Exception
 {
     /**
-     * @param $exception
+     * @param $message
+     * @param int $statusCode
      * @return JsonResponse
      */
-    public function message(object $exception, int $statusCode): JsonResponse
+    public function message($message, int $statusCode): JsonResponse
     {
-        return (new BaseListCollection(collect(['message' => $exception->getMessage()])))
+        return (new BaseListCollection(collect(['message' => $message])))
             ->response()
             ->setStatusCode($statusCode ?? ResponseAlias::HTTP_INTERNAL_SERVER_ERROR);
     }

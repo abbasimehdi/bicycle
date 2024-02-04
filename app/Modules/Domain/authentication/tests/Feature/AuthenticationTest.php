@@ -31,7 +31,7 @@ class AuthenticationTest extends TestCase
             [
                 AuthConstants::NAME     => fake()->name,
                 AuthConstants::EMAIL    => fake()->unique()->email,
-                AuthConstants::USERNAME => fake()->unique()->userName,
+                AuthConstants::USERNAME => fake()->unique()->realTextBetween(4, 16),
                 AuthConstants::PASSWORD => fake()->numberBetween(111111, 999999),
             ]
         );

@@ -12,12 +12,12 @@
 - ubuntu
 
 # Run Project with docker
--  sudo docker-compose up -d
--  sudo docker-compose exec bicycle_app php artisan optimize:clear
+-  sudo docker-compose up -d 
+- cp .env.example .env
+- sudo docker-compose exec bicycle_app php artisan optimize:clear
 -  sudo docker-compose exec bicycle_app php artisan migrate --seed
 -  sudo docker-compose exec bicycle_app php artisan passport:install
 - composer du
-- cp .env.example .env
 - http://your_local_ip:8080
 
 ## Test sections
@@ -28,6 +28,9 @@
 
 ### Run tests
 - sudo docker-compose exec bicycle_app php artisan test
+
+### Documentation directory
+- Documents/Collection/Postman
 
 ## Security Vulnerabilities
 If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.

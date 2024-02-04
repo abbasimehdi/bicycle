@@ -25,7 +25,6 @@ class CheckUserIsAdmin
             return $next($request);
         }
 
-
         return (new CustomException())->message(
             'You do not have permission to access this page',
             Response::HTTP_FORBIDDEN);

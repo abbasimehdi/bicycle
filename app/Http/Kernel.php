@@ -2,8 +2,7 @@
 
 namespace App\Http;
 
-use App\Http\Middleware\CheckAdmin;
-use App\Http\Middleware\CheckUserIsAdmin;
+use Bicycle\Modules\Domain\Core\Http\Middleware\CheckUserIsAdmin;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Middleware;
+namespace Bicycle\Modules\Domain\Core\Http\Middleware;
 
 use Bicycle\Modules\Domain\Core\Exceptions\CustomException;
 use Closure;
@@ -25,10 +25,10 @@ class CheckUserIsAdmin
             return $next($request);
         }
 
+
         return (new CustomException())->message(
             'You do not have permission to access this page',
             Response::HTTP_FORBIDDEN);
 
-        throw new \InvalidArgumentException('You do not have permission to access this page', 403);
     }
 }

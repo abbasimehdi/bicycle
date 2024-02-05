@@ -45,7 +45,9 @@ class ReservationController
         try {
             return $this->reservationInterface->cancel(Reservation::query()->findOrFail($id));
         } catch (ModelNotFoundException $exception) {
-            return (new CustomException())->message($exception->getMessage(), ResponseAlias::HTTP_NOT_FOUND);
+            return (new CustomException())->message(
+                $exception->getMessage(), ResponseAlias::HTTP_NOT_FOUND
+            );
         }
     }
 }

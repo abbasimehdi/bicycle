@@ -13,7 +13,7 @@ class RegisterController extends Controller
      * @param RegisterInterface $registerInterface
      */
     public function __construct(
-        RegisterInterface $registerInterface
+        public RegisterInterface $registerInterface
     ) {
         $this->registerInterface = $registerInterface;
     }

@@ -4,7 +4,6 @@ namespace Bicycle\Modules\Domain\Core\Http\Contracts;
 
 use Bicycle\Modules\Domain\Core\Models\Schemas\Constants\BaseConstants;
 use Illuminate\Http\JsonResponse;
-use Symfony\Component\HttpFoundation\Response as ResponseAlias;
 
 abstract class BaseRepository implements BaseRepositoryInterface
 {
@@ -25,16 +24,16 @@ abstract class BaseRepository implements BaseRepositoryInterface
      */
     public function all(): JsonResponse
     {
-        return response()->json($this->model->orderBy('id', 'desc')->get());
+        return $this->model->orderBy('id', 'desc')->get();
     }
 
     /**
-     * @param int $limit
+     * @param int|null $limit
      * @return mixed
      */
     public function paginate(int|null $limit = BaseConstants::LIMIT): JsonResponse
     {
-        return response()->json($this->model->orderBy('id', 'desc')->paginate($limit));
+        return $this->model->orderBy('id', 'desc')->paginate($limit);
     }
 
     /**
@@ -45,13 +44,14 @@ abstract class BaseRepository implements BaseRepositoryInterface
      */
     public function getBy($col, $value, int $limit = BaseConstants::LIMIT): JsonResponse
     {
-        return response()->json($this->model->where($col, $value)->limit($limit)->get());
+        return $this->model->where($col, $value)->limit($limit)->get();
     }
 
     /**
-     * @param  array  $data
+     * @param array $data
+     * @return mixed
      */
-    public function create(array $data)
+    public function create(array $data): mixed
     {
         return $this->model->create($data);
     }
@@ -65,15 +65,23 @@ abstract class BaseRepository implements BaseRepositoryInterface
         return $this->model->find($id);
     }
 
+    /**
+     * @param int $id
+     * @param array $data
+     * @return JsonResponse
+     */
     public function update(int $id, array $data): JsonResponse
     {
-        return response()->json($this->model->update($data));
+        return $this->model->update($data);
     }
 
-
+    /**
+     * @param int $id
+     * @return JsonResponse
+     */
     public function delete(int $id): JsonResponse
     {
-        return response()->json($this->model->delete());
+        return $this->model->delete();
 
     }
 
@@ -83,6 +91,6 @@ abstract class BaseRepository implements BaseRepositoryInterface
      */
     public function exists(int $id): JsonResponse
     {
-        return response()->json($this->model->where('id', $id)->exists(), ResponseAlias::HTTP_OK);
+        return $this->model->where('id', $id)->exists();
     }
 }

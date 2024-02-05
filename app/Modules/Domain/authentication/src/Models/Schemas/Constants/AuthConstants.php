@@ -23,4 +23,6 @@ class AuthConstants
     const USER_ID = 'user_id';
     const TOKEN_NAME = 'API Token';
     const ERROR_MESSAGE = 'error_message';
+    const TOKEN = 'token';
+    const API_TOEN = 'API Token';
 }

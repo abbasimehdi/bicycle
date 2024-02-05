@@ -8,9 +8,9 @@ use Bicycle\Modules\Domain\Core\Http\Contracts\BaseRepository;
 class BicycleRepository extends BaseRepository
 {
     /**
-     * @return mixed
+     * @return string
      */
-    public function model(): mixed
+    public function model(): string
     {
         return Bicycle::class;
     }

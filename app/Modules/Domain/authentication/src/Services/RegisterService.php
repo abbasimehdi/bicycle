@@ -7,7 +7,6 @@ use Bicycle\Modules\Domain\Authentication\Contracts\RegisterRepository;
 use Illuminate\Http\JsonResponse;
 
 class RegisterService implements RegisterInterface
-
 {
     /**
      * @param RegisterRepository $registerRepository

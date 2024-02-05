@@ -14,7 +14,7 @@ class LoginController extends Controller
      * @param LoginInterface $loginInterface
      */
     public function __construct(
-        LoginInterface $loginInterface
+        public LoginInterface $loginInterface
     ) {
         $this->loginInterface = $loginInterface;
     }

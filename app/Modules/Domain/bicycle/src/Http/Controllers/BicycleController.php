@@ -16,6 +16,10 @@ class BicycleController
         $this->bicycleInterface = $bicycleInterface;
     }
 
+    /**
+     * @param Request $request
+     * @return JsonResponse
+     */
     public function index(Request $request): JsonResponse
     {
         return $this->bicycleInterface->all($request->query('limit'));

@@ -15,7 +15,7 @@ class CustomException extends Exception
      * @param int $statusCode
      * @return JsonResponse
      */
-    public function message(string $message, int $statusCode): JsonResponse
+    public static function message(string $message, int $statusCode): JsonResponse
     {
         return (new BaseListCollection(collect([BaseConstants::MESSAGE => $message])))
             ->response()

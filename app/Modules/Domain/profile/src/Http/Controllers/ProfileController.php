@@ -10,8 +10,9 @@ class ProfileController
     /**
      * @param ProfileInterface $profileInterface
      */
-    public function __construct(public ProfileInterface $profileInterface)
-    {
+    public function __construct(
+        public ProfileInterface $profileInterface
+    ) {
         $this->profileInterface = $profileInterface;
     }
 

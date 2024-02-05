@@ -3,15 +3,12 @@
 namespace Bicycle\Modules\Domain\Reservation\Contracts;
 
 use App\Modules\Domain\reservation\src\Patterns\Builder\ReservationBuilder;
-use Bicycle\Modules\Domain\Bicycle\Models\Bicycle;
 use Bicycle\Modules\Domain\Core\Http\Contracts\BaseRepository;
 use Bicycle\Modules\Domain\Reservation\Models\Reservation;
 use Bicycle\Modules\Domain\Reservation\Patterns\Builder\CancelReservationBuilder;
 use Bicycle\Modules\Domain\Reservation\Resources\ReservationResource;
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Model;
+use Exception;
 use Illuminate\Http\JsonResponse;
 use Symfony\Component\HttpFoundation\Response as ResponseAlias;
 
@@ -29,7 +26,7 @@ class ReservationRepository extends BaseRepository
      * @param array $data
      * @param $bicycle
      * @return JsonResponse
-     * @throws \Exception
+     * @throws Exception
      */
     public function reservation(array $data, $bicycle): JsonResponse
     {

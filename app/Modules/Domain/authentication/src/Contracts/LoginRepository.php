@@ -27,7 +27,6 @@ class LoginRepository extends BaseRepository
     {
         $this->isAttempt($data);
 
-
         return (new BaseListCollection(collect(
             [
                 'token' => auth()->user()->createToken(AuthConstants::TOKEN_NAME)->accessToken

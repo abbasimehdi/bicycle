@@ -1,6 +1,7 @@
 <?php
 
 namespace Bicycle\Modules\Domain\Authentication\Models\Schemas\Constants;
+
 class AuthConstants
 {
     const API_ROUTE = '/routes/api.php';
@@ -9,9 +10,8 @@ class AuthConstants
     const MODEL = 'model';
     const AUTH = 'auth';
     const OPERATION = 'operation';
-    const CONTROLLER_ROUTE = 'Selfofficename\Modules\Domain\Authentication\Http\Controllers';
+    const CONTROLLER_ROUTE = 'Bicycle\Modules\Domain\Authentication\Http\Controllers';
     const MIGRATION_ROUTE = '/database/migrations';
-
     const STRING_REGEX = "/^[a-zA-Z]+$/u";
     const EMAIL_REGEX = "/^([a-z0-9+-]+)(.[a-z0-9+-]+)*@([a-z0-9-]+.)+[a-z]{2,6}$/";
     const REGISTER = 'register';

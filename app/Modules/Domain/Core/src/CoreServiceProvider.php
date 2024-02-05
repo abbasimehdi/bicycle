@@ -2,6 +2,7 @@
 
 namespace Bicycle\Modules\Domain\Core;
 
+use Bicycle\Modules\Domain\Core\Exceptions\CustomException;
 use Illuminate\Support\ServiceProvider;
 
 class CoreServiceProvider extends ServiceProvider
@@ -14,7 +15,9 @@ class CoreServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        // Do nothing
+//        $this->app->bind('HelpSpot\API', function ($app) {
+//            return new HelpSpot\API($app->make('HttpClient'));
+//        });
     }
 
     /**

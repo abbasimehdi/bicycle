@@ -29,5 +29,4 @@ class ProfileServiceProvider extends ServiceProvider
             ->namespace(ProfileConstants::CONTROLLER_ROUTE)
             ->group(__DIR__.ProfileConstants::API_ROUTE);
     }
-
 }

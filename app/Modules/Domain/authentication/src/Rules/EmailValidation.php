@@ -24,6 +24,6 @@ class EmailValidation implements Rule
      */
     public function message(): Application|array|string|Translator|null
     {
-        return __('error.not_valid_email');
+        return __('auth_lang::error.not_valid_email');
     }
 }

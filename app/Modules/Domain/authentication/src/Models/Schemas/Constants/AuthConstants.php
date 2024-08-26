@@ -12,6 +12,7 @@ class AuthConstants
     const OPERATION = 'operation';
     const CONTROLLER_ROUTE = 'Bicycle\Modules\Domain\Authentication\Http\Controllers';
     const MIGRATION_ROUTE = '/database/migrations';
+    const TRANSLATION = '/lang';
     const STRING_REGEX = "/^[a-zA-Z]+$/u";
     const EMAIL_REGEX = "/^([a-z0-9+-]+)(.[a-z0-9+-]+)*@([a-z0-9-]+.)+[a-z]{2,6}$/";
     const REGISTER = 'register';

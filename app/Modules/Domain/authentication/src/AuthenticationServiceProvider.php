@@ -19,6 +19,9 @@ class AuthenticationServiceProvider extends ServiceProvider
     {
         $this->routeRegister();
         $this->loadMigrationsFrom(__DIR__.AuthConstants::MIGRATION_ROUTE);
+        $this->loadTranslationsFrom( __DIR__, AuthConstants::TRANSLATION);
+        $this->loadTranslationsFrom(__DIR__ . AuthConstants::TRANSLATION, 'auth_lang');
+//        samp;e call: <label>{{ __('package_lang::subs/fields.name_of_subs') }}</label>
         $this->app->bind(RegisterInterface::class, RegisterService::class);
         $this->app->bind(LoginInterface::class, LoginService::class);
     }

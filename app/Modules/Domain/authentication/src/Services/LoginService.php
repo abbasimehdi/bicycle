@@ -14,7 +14,6 @@ class LoginService implements LoginInterface
      */
     public function __construct(public LoginRepository $loginRepository)
     {
-        $this->loginRepository = $loginRepository;
     }
 
     /**

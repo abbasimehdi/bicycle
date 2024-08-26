@@ -3,13 +3,14 @@
 namespace Bicycle\Modules\Domain\Core\Http\Contracts;
 
 use Illuminate\Http\JsonResponse;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Request;
 
 interface BaseRepositoryInterface
 {
     public function all(): JsonResponse;
 
-    public function paginate(int|null $limit = 15);
+    public function paginate(int|null $limit = 15): JsonResponse|LengthAwarePaginator;
 
     public function getBy($col, $value, int $limit = 15): JsonResponse;
 

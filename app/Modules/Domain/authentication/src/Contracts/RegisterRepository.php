@@ -26,7 +26,10 @@ class RegisterRepository extends BaseRepository
     public function register($data): JsonResponse
     {
         return (new BaseListCollection(collect([
-            AuthConstants::TOKEN => $this->create($data)->createToken(AuthConstants::API_TOEN)->accessToken]))
+            AuthConstants::TOKEN =>
+                $this->create($data)
+                    ->createToken(AuthConstants::API_TOEN)
+                    ->accessToken]))
         )
             ->response()
             ->setStatusCode(ResponseAlias::HTTP_CREATED);

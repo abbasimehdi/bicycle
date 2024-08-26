@@ -43,7 +43,9 @@ class LoginRepository extends BaseRepository
     private function isAttempt(array $data): void
     {
         if (!auth()->attempt($data)) {
-            response([AuthConstants::ERROR_MESSAGE => trans('auth_lang::error.incorrect_detail')]);
+            response([AuthConstants::ERROR_MESSAGE =>
+                          trans('auth_lang::error.incorrect_detail')
+            ]);
         }
     }
 }

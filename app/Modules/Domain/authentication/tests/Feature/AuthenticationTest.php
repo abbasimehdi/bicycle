@@ -27,7 +27,7 @@ class AuthenticationTest extends TestCase
     public function register_and_create_token(): void
     {
         $response = $this->withHeader('Accept', "application/json")
-            ->json('POST', "/api/auth/register" ,
+            ->json('POST', config('authentication.route.register-route') ,
             [
                 AuthConstants::NAME     => fake()->name,
                 AuthConstants::EMAIL    => fake()->unique()->email,

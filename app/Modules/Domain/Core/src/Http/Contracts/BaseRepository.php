@@ -4,6 +4,7 @@ namespace Bicycle\Modules\Domain\Core\Http\Contracts;
 
 use Bicycle\Modules\Domain\Core\Models\Schemas\Constants\BaseConstants;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 abstract class BaseRepository implements BaseRepositoryInterface
 {
@@ -29,9 +30,8 @@ abstract class BaseRepository implements BaseRepositoryInterface
 
     /**
      * @param int|null $limit
-     * @return mixed
      */
-    public function paginate(int|null $limit = BaseConstants::LIMIT): JsonResponse
+    public function paginate(int|null $limit = BaseConstants::LIMIT)
     {
         return $this->model->orderBy('id', 'desc')->paginate($limit);
     }

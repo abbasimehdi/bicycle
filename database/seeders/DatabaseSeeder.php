@@ -3,8 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\User;
-use Bicycle\Modules\Domain\Bicycle\database\seeders\BicycleSeeder;
-use Bicycle\Modules\Domain\Reservation\database\seeders\ReservationSeeder;
+use App\Modules\Domain\bicycle\database\seeders\BicycleSeeder;
+use App\Modules\Domain\reservation\database\seeders\ReservationSeeder;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder

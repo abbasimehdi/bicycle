@@ -13,14 +13,20 @@ class CancelReservationBuilder implements CancelInterface, CheckCancelStatusInte
     /**
      * @param Reservation $reservation
      */
-    public function __construct(protected Reservation $reservation)
+    public function __construct
+    (
+        protected Reservation $reservation
+    )
     {
-        $this->reservation = $reservation;
     }
 
-    public function cancel()
+    /**
+     * @return Reservation
+     */
+    public function cancel(): Reservation
     {
         $this->reservation->update(['status' => ReservationStatusEnum::CANCEL->value]);
+
         return $this->reservation;
     }
 

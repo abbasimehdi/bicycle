@@ -1,6 +1,6 @@
 <?php
 
-namespace Bicycle\Modules\Domain\Reservation\database\seeders;
+namespace App\Modules\Domain\reservation\database\seeders;
 
 use Bicycle\Modules\Domain\Reservation\Models\Reservation;
 use Bicycle\Modules\Domain\Reservation\Models\Schemas\Constants\ReservationConstants;

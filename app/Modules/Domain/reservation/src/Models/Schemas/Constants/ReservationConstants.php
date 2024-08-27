@@ -7,7 +7,7 @@ class ReservationConstants
     const PREFIX = 'api/v1';
     const MODEL = 'model';
     const CONTROLLER_ROUTE = 'Bicycle\Modules\Domain\Reservation\Http\Controllers';
-    const MIGRATION_ROUTE = '/database/migrations';
+    const MIGRATION_ROUTE = '/../database/migrations';
     const USER_ID = 'user_id';
     const BICYCLE_ID = 'bicycle_id';
     const START = 'start';

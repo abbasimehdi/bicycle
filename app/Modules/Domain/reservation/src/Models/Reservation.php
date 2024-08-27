@@ -3,8 +3,8 @@
 namespace Bicycle\Modules\Domain\Reservation\Models;
 
 use App\Models\User;
+use App\Modules\Domain\reservation\database\factories\ReservationFactory;
 use Bicycle\Modules\Domain\Bicycle\Models\Bicycle;
-use Bicycle\Modules\Domain\Reservation\database\factories\ReservationFactory;
 use Bicycle\Modules\Domain\Reservation\Models\Schemas\Constants\ReservationConstants;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;

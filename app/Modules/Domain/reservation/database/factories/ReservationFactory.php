@@ -1,6 +1,6 @@
 <?php
 
-namespace Bicycle\Modules\Domain\Reservation\database\factories;
+namespace App\Modules\Domain\reservation\database\factories;
 
 use App\Models\User;
 use Bicycle\Modules\Domain\Bicycle\Models\Bicycle;

@@ -2,9 +2,9 @@
 
 namespace Bicycle\Modules\Domain\Bicycle\Models;
 
+use App\Modules\Domain\bicycle\database\factories\BicycleFactory;
 use App\Modules\Domain\bicycle\src\Models\Schemas\Constants\BicycleConstants;
 use App\Modules\Domain\reservation\src\Patterns\Builder\Inventory;
-use Bicycle\Modules\Domain\Bicycle\database\factories\BicycleFactory;
 use Bicycle\Modules\Domain\Core\Scopes\ActiveScope;
 use Bicycle\Modules\Domain\Reservation\Models\Reservation;
 use Carbon\Carbon;

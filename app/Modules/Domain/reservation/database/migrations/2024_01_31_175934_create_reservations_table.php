@@ -1,10 +1,11 @@
 <?php
 
+namespace App\Modules\Domain\reservation\database\migrations;
+
 use Bicycle\Modules\Domain\Reservation\Models\Schemas\AddReservationSchema;
 use Illuminate\Database\Migrations\Migration;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */

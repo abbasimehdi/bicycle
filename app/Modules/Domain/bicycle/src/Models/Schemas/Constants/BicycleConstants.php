@@ -9,7 +9,7 @@ class BicycleConstants
     const MODEL = 'model';
 
     const CONTROLLER_ROUTE = 'Bicycle\Modules\Domain\Bicycle\Http\Controllers';
-    const MIGRATION_ROUTE = '/database/migrations';
+    const MIGRATION_ROUTE = '/../database/migrations';
     const TITLE = 'title';
     const INVENTORY = 'inventory';
     const IS_ACTIVE = 'is_active';

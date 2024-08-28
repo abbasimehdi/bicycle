@@ -2,15 +2,10 @@
 
 namespace Bicycle\Modules\Domain\Bicycle\Tests\Unit;
 
-use App\Models\User;
 use App\Modules\Domain\bicycle\src\Models\Schemas\Constants\BicycleConstants;
-use Bicycle\Modules\Domain\Authentication\Models\Schemas\Constants\AuthConstants;
-use Bicycle\Modules\Domain\Bicycle\Models\Bicycle;
-use Bicycle\Modules\Domain\Reservation\Models\Reservation;
+use Bicycle\Modules\Domain\Bicycle\Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Schema;
-use Tests\TestCase;
 
 class BicycleTest extends TestCase
 {
@@ -22,10 +17,6 @@ class BicycleTest extends TestCase
     public function setUp(): void
     {
         parent::setUp();
-        Artisan::call('passport:install');
-        $this->user = User::factory(1)->create(['password' => 123456])->first();
-        $this->bicycle = Bicycle::factory()->create();
-        $this->token = $this->user->createToken('test token')->accessToken;
     }
 
     /**

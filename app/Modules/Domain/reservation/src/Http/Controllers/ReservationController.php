@@ -43,7 +43,7 @@ class ReservationController
     public function cancel(int $id): JsonResponse
     {
         try {
-            return $this->reservationInterface->cancel(Reservation::query()->findOrFail($id));
+            return $this->reservationInterface->cancel(Reservation::findOrFail($id));
         } catch (ModelNotFoundException $exception) {
             return CustomException::message(
                 $exception->getMessage(), ResponseAlias::HTTP_NOT_FOUND
